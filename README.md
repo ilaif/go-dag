@@ -1,7 +1,7 @@
 # go-dag
 
-[![Build Status](https://travis-ci.org/ilaif/go-dag.svg)](https://travis-ci.org/AkihiroSuda/go-dag)
-[![GoDoc](https://godoc.org/github.com/ilaif/go-dag?status.svg)](https://godoc.org/github.com/AkihiroSuda/go-dag)
+[![Build Status](https://travis-ci.org/ilaif/go-dag.svg)](https://travis-ci.org/ilaif/go-dag)
+[![GoDoc](https://godoc.org/github.com/ilaif/go-dag?status.svg)](https://godoc.org/github.com/ilaif/go-dag)
 
 A minimalistic DAG utility with a concurrent scheduler
 
@@ -20,8 +20,8 @@ See [scheduler/scheduler_test.go](scheduler/scheduler_test.go).
 
 ```go
 import (
-    "github.com/AkihiroSuda/go-dag"
-    "github.com/AkihiroSuda/go-dag/scheduler"
+    "github.com/ilaif/go-dag"
+    "github.com/ilaif/go-dag/scheduler"
 )
 
 g := &dag.Graph{

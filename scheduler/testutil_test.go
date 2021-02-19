@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/AkihiroSuda/go-dag"
+	"github.com/ilaif/go-dag"
 	"github.com/stretchr/testify/assert"
 )
 
