@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/AkihiroSuda/go-dag"
-	"github.com/docker/docker/pkg/testutil/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 const (
@@ -60,7 +60,7 @@ func testExecute0(t *testing.T, concurrency uint) {
 
 	begun := time.Now()
 	got := testExecute(t, g, concurrency, w)
-	took := time.Now().Sub(begun)
+	took := time.Since(begun)
 	t.Logf("Took: %v (%2.2f%% of ideal)", took, 100*float64(took)/float64(ideal))
 
 	assert.Equal(t, len(got), 6)
@@ -124,7 +124,7 @@ func testExecute1(t *testing.T, concurrency uint) {
 
 	begun := time.Now()
 	got := testExecute(t, g, concurrency, w)
-	took := time.Now().Sub(begun)
+	took := time.Since(begun)
 	t.Logf("Took: %v (%2.2f%% of ideal)", took, 100*float64(took)/float64(ideal))
 
 	assert.Equal(t, len(got), 7)
@@ -185,7 +185,7 @@ func testExecute2(t *testing.T, concurrency uint) {
 
 	begun := time.Now()
 	got := testExecute(t, g, concurrency, w)
-	took := time.Now().Sub(begun)
+	took := time.Since(begun)
 	t.Logf("Took: %v (%2.2f%% of ideal)", took, 100*float64(took)/float64(ideal))
 
 	assert.Equal(t, len(got), 5)

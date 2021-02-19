@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/AkihiroSuda/go-dag"
-	"github.com/docker/docker/pkg/testutil/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func determineFakeWorkload(g *dag.Graph, maxSleep time.Duration, seed int64) map[dag.Node]time.Duration {
@@ -27,11 +27,11 @@ func sum(workload map[dag.Node]time.Duration) time.Duration {
 	return x
 }
 
-func max(cands ...time.Duration) time.Duration {
+func max(candidates ...time.Duration) time.Duration {
 	x := time.Duration(0)
-	for _, cand := range cands {
-		if cand > x {
-			x = cand
+	for _, candidate := range candidates {
+		if candidate > x {
+			x = candidate
 		}
 	}
 	return x
@@ -47,7 +47,7 @@ func testExecute(t *testing.T, g *dag.Graph, concurrency uint, workload map[dag.
 		c <- n
 		return nil
 	})
-	assert.NilError(t, err)
+	assert.NoError(t, err)
 	var got []dag.Node
 	for i := 0; i < len(g.Nodes); i++ {
 		n := <-c

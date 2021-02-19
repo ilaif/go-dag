@@ -15,7 +15,7 @@ type Callback func(dag.Node) error
 // Concurrency is set to maximum if set to zero (unimplemented)
 func Execute(g *dag.Graph, concurrency uint, cb Callback) error {
 	s := &scheduler{
-		waitGroups: make(map[dag.Node]*sync.WaitGroup, 0),
+		waitGroups: make(map[dag.Node]*sync.WaitGroup),
 	}
 	for _, n := range g.Nodes {
 		s.init(n)

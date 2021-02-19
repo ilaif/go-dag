@@ -26,7 +26,6 @@ type Graph struct {
 // VerifyAcyclicity returns true if the graph is DAG
 func (g *Graph) VerifyAcyclicity() bool {
 	panic("unimplemented")
-	return true
 }
 
 // HasNode returns true if the graph has the node
@@ -97,7 +96,7 @@ func (x EdgesSorter) Less(i, j int) bool {
 // ConnectedComponentRoots returns nodes with no dependee
 // See also https://en.wikipedia.org/wiki/Connected_component_(graph_theory)
 func (g *Graph) ConnectedComponentRoots() []Node {
-	nonRoot := make(map[Node]struct{}, 0)
+	nonRoot := make(map[Node]struct{})
 	for _, edge := range g.Edges {
 		nonRoot[edge.Depender] = struct{}{}
 	}
